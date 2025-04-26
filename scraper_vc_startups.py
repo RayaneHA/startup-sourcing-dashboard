@@ -95,6 +95,10 @@ def load_from_supabase():
 if __name__ == '__main__':
     st.set_page_config(page_title="Startup Sourcing Dashboard", layout="wide")
     st.title("🚀 Startup Sourcing Tracker")
+        # Scraper et pousser avant de charger
+    df_scraped = aggregate_sources()
+    push_to_supabase(df_scraped)
+
 
     df = load_from_supabase()
 
